@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { configureStore, combineReducers, AnyAction } from '@reduxjs/toolkit'
+=======
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+>>>>>>> 6be14fa (improve types)
 import { createWrapper, MakeStore, HYDRATE } from 'next-redux-wrapper'
 import { authSlice } from './slices/auth'
 import { frogsSlice } from './slices/frogs'
@@ -23,8 +27,9 @@ const rootReducer = (state: ReturnType<typeof combinedReducers>, action: AnyActi
 export const store = configureStore<OurStore>({
   reducer: rootReducer,
 })
-const makeStore: MakeStore = () => store
 
+const makeStore: MakeStore = () => store
 export const wrapper = createWrapper(makeStore, { storeKey: 'key' })
+
 
 export type ThunkDispatch = typeof store.dispatch
